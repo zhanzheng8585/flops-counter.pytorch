@@ -1,7 +1,7 @@
 import torchvision.models as models
 import torch
 from ptflops import get_model_complexity_info
-from model import ColorNet
+import model
 
 with torch.cuda.device(6):
 	net = model.ColorNet()
