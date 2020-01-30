@@ -1,6 +1,6 @@
 from torch import nn
 from torch.nn.utils import weight_norm
-from .common import ShiftMean
+from common import ShiftMean
 
 
 class ResBlock(nn.Module):
