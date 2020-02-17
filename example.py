@@ -1,9 +1,10 @@
 import torchvision.models as models
 import torch
 from ptflops import get_model_complexity_info
-import wdsr_b
+# import wdsr_b
 from option2 import parser
-import args
+from wdsr_b import *
+from args import *
 
 with torch.cuda.device(6):
 	args = get_args()
