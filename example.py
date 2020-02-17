@@ -3,9 +3,10 @@ import torch
 from ptflops import get_model_complexity_info
 import wdsr_b
 from option2 import parser
+import args
 
-args = parser.parse_args()
 with torch.cuda.device(6):
+	args = get_args()
 	net = wdsr_b.MODEL(args)
 	# net = models.densenet161()
 	flops, params = get_model_complexity_info(net, (3, 128, 128), as_strings=True, print_per_layer_stat=True)
