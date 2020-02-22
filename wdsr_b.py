@@ -31,7 +31,7 @@ class MODEL(nn.Module):
         super(MODEL, self).__init__()
         # hyper-params
         self.args = args
-        scale = 2
+        scale = 4
         n_resblocks = args.n_resblocks
         n_feats = args.n_feats
         kernel_size = 3
