@@ -4,12 +4,12 @@ import argparse
 def get_args():
     parser = argparse.ArgumentParser()
 #   args for the network
-    parser.add_argument('--scale', default=4)
+    parser.add_argument('--scale', default=2)
 
-    parser.add_argument('--n_resblocks', default=32,
+    parser.add_argument('--n_resblocks', default=8,
                         help='Number of Residual Blocks')
 
-    parser.add_argument('--n_feats', default=32,
+    parser.add_argument('--n_feats', default=64,
                         help='Feature maps in the Residual Block mapping path way' +
                         'The total Parameter of the network is:' +
                         '(x*x*6*1 + 6*x*x*0.8 + 3*3*x*x*0.8)*5 + 27*x + 25*12*3')
