@@ -103,6 +103,8 @@ parser.add_argument('--gan_k', type=int, default=1,
 # Optimization specifications
 parser.add_argument('--lr', type=float, default=1e-4,
                     help='learning rate')
+# parser.add_argument('--lr-decay-steps', type=int, default=200)
+# parser.add_argument('--lr-decay-gamma', type=float, default=0.5)
 parser.add_argument('--decay', type=str, default='200',
                     help='learning rate decay type')
 parser.add_argument('--gamma', type=float, default=0.5,
