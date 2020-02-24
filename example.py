@@ -10,8 +10,9 @@ with torch.cuda.device(6):
 	args = get_args()
 	net = WDSR_B(args)
 	# net = models.densenet161()
-	flops, params = get_model_complexity_info(net, (3, 352, 240), as_strings=True, print_per_layer_stat=True)
+	flops, params = get_model_complexity_info(net, (3, 426, 240), as_strings=True, print_per_layer_stat=True)
 	# flops, params = get_model_complexity_info(net, (3, 224, 224), as_strings=True, print_per_layer_stat=True)
 	print('{:<30}  {:<8}'.format('Computational complexity: ', flops))
 	print('{:<30}  {:<8}'.format('Number of parameters: ', params))
 
+# 144P(256×144) 240p(426×240) 360P(640×360) 480P(854×480)
