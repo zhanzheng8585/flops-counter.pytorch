@@ -7,7 +7,7 @@ import os
 import sys
 # from resnet_1d import ResNet50_1d
 # from resnet_1d_lite import ResNet50_1d_shrink
-from thop import profile_ori
+from thop import *
 import yaml
 import wdsr_b
 from option2 import parser
