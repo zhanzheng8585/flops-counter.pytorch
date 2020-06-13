@@ -35,7 +35,7 @@ with torch.cuda.device(0):
 
 	model.train(False)
 	model.eval()
-	macs, params = profile.profile_ori(model, inputs=(input, ))
+	macs, params = profile(model, inputs=(input, ))
 	# flops, params = get_model_complexity_info(net, (3, 224, 224), as_strings=True, print_per_layer_stat=True)
 	print('{:<30}  {:<8}'.format('Computational complexity: ', macs * 2/1000000000)) # GMACs
 	print('{:<30}  {:<8}'.format('Number of parameters: ', params/1000000)) # M

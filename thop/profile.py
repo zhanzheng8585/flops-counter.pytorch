@@ -56,7 +56,7 @@ register_hooks = {
 }
 
 
-def profile(model, inputs, rate, custom_ops=None, verbose=True):
+def profile_prune(model, inputs, rate, custom_ops=None, verbose=True):
     handler_collection = []
     if custom_ops is None:
         custom_ops = {}
@@ -132,7 +132,7 @@ def profile(model, inputs, rate, custom_ops=None, verbose=True):
 
     return total_ops, total_params
 
-def profile_ori(model, inputs, custom_ops=None, verbose=True):
+def profile(model, inputs, custom_ops=None, verbose=True):
     handler_collection = []
     if custom_ops is None:
         custom_ops = {}
