@@ -31,14 +31,14 @@ with torch.cuda.device(0):
 	# model = ResNet50_1d(args.slice_size,args.devices)
 	args = get_args()
 	model = WDSR_B(args)
-	input = torch.randn(3,192,192)
+	input = torch.randn(3,196,196)
 
 	model.train(False)
 	model.eval()
 	macs, params = profile(model, inputs=(input, ))
 	# flops, params = get_model_complexity_info(net, (3, 224, 224), as_strings=True, print_per_layer_stat=True)
-	print('{:<30}  {:<8}'.format('Computational complexity: ', macs * 2/1000000000)) # GMACs
-	print('{:<30}  {:<8}'.format('Number of parameters: ', params/1000000)) # M
+	print('{:<30}  {:<8}'.format('Computational complexity: ', macs)) # GMACs
+	print('{:<30}  {:<8}'.format('Number of parameters: ', params)) # M
 
 
 	# model = ResNet50_1d_shrink(args.slice_size,args.devices,shrink)
