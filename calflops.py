@@ -19,7 +19,7 @@ from args import *
 # parser.add_argument('--devices', type=int, default=500, help='number of classes')
 
 
-with torch.cuda.device(0):
+with torch.cuda.device(6):
 	# args = parser.parse_args()
 	# shrink = 0.547
 	# base_path = os.getcwd()
