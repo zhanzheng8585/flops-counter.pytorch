@@ -38,8 +38,8 @@ with torch.cuda.device(7):
 	model.eval()
 	macs, params = profile(model, inputs=(input, ))
 	# flops, params = get_model_complexity_info(net, (3, 224, 224), as_strings=True, print_per_layer_stat=True)
-	print('{:<30}  {:<8}'.format('Computational complexity: ', macs)) # GMACs
-	print('{:<30}  {:<8}'.format('Number of parameters: ', params)) # M
+	print('{:<30}  {:<8}'.format('Computational complexity: ', macs/100000000)) # GMACs
+	print('{:<30}  {:<8}'.format('Number of parameters: ', params/1000)) # M
 
 
 	# model = ResNet50_1d_shrink(args.slice_size,args.devices,shrink)
