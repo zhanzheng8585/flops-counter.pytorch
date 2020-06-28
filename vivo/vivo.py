@@ -66,7 +66,7 @@ class Vivo16ch7RBs(nn.Module):
 
 
 class Vivo8ch29RBs(nn.Module):
-    def __init__(self, nf=16, nRBs=7):
+    def __init__(self, nf=8, nRBs=29):
         super().__init__()
         self.relu = nn.ReLU()
         self.conv_in = nn.Conv2d(1, nf, 3, 1, 1)
