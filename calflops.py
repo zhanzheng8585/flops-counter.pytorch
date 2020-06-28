@@ -32,7 +32,7 @@ with torch.cuda.device(7):
 	args = get_args()
 	# model = WDSR_B(args)
 	model = vivo.Vivo8ch29RBs()
-	input = torch.randn(1,960,540)
+	input = torch.randn(1,1,960,540)
 
 	model.train(False)
 	model.eval()
