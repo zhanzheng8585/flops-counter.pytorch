@@ -5,12 +5,14 @@ from ptflops import get_model_complexity_info
 from option2 import parser
 from wdsr_b import *
 from args import *
+from vivo import *
 
-with torch.cuda.device(6):
+with torch.cuda.device(7):
 	args = get_args()
-	net = WDSR_B(args)
+	# net = WDSR_B(args)
+	net = Vivo32ch2RBs()
 	# net = models.densenet161()
-	flops, params = get_model_complexity_info(net, (3, 196, 196), as_strings=True, print_per_layer_stat=True)
+	flops, params = get_model_complexity_info(net, (3, 960, 540), as_strings=True, print_per_layer_stat=True)
 	# flops, params = get_model_complexity_info(net, (3, 224, 224), as_strings=True, print_per_layer_stat=True)
 	print('{:<30}  {:<8}'.format('Computational complexity: ', flops))
 	print('{:<30}  {:<8}'.format('Number of parameters: ', params))
