@@ -116,7 +116,7 @@ import torch.nn.functional as F
 from wdsr_b import *
 from args import *
 from models import *
-
+from vivo import vivo
 def main():
 
     use_gpu = torch.cuda.is_available()
@@ -125,7 +125,7 @@ def main():
     # model = ColorNet()
     # args = get_args()
     # model = MODEL(args)
-    model = Vivo32ch2RBs()
+    model = vivo.Vivo32ch2RBs()
     # state_dict = torch.load("./checkpoint/checkpoint6/model_epoch133_step1.pth")
     # new_state_dict = OrderedDict()
 
@@ -159,7 +159,7 @@ def to_numpy(tensor):
 
 def check():
 
-    model = Vivo32ch2RBs()
+    model = vivo.Vivo32ch2RBs()
     checkpoint = torch.load("/home/zhanzheng/flops-counter.pytorch/vivo/vivo_32ch_2rbs.pth")
     model.load_state_dict(new_state_dict)
     # model.load_state_dict(checkpoint["model"].state_dict())
