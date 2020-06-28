@@ -136,7 +136,7 @@ def main():
     # model = torch.nn.DataParallel(model)
     # model.load_state_dict(new_state_dict)
     checkpoint = torch.load("/home/zhanzheng/flops-counter.pytorch/vivo/vivo_32ch_2rbs.pth")
-    model.load_state_dict(checkpoint)
+    model.load_state_dict(checkpoint["model"].state_dict())
 
     # print(model)
     input_shape = (1, 960, 540)
@@ -160,7 +160,7 @@ def check():
 
     model = Vivo32ch2RBs()
     checkpoint = torch.load("/home/zhanzheng/flops-counter.pytorch/vivo/vivo_32ch_2rbs.pth")
-    model.load_state_dict(checkpoint)
+    model.load_state_dict(checkpoint["model"].state_dict())
 
     # torch.nn.utils.remove_weight_norm(model.head[0])
     # for i in range(1):
