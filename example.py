@@ -10,7 +10,7 @@ from vivo import vivo
 with torch.cuda.device(7):
 	args = get_args()
 	# net = WDSR_B(args)
-	net = vivo.Vivo16ch7RBs()
+	net = vivo.Vivo8ch29RBs()
 	# net = models.densenet161()
 	flops, params = get_model_complexity_info(net, (1, 960, 540), as_strings=True, print_per_layer_stat=True)
 	# flops, params = get_model_complexity_info(net, (3, 224, 224), as_strings=True, print_per_layer_stat=True)
