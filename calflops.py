@@ -13,7 +13,8 @@ import wdsr_b
 from option2 import parser
 from wdsr_b import *
 from args import *
-from vivo import vivo
+from vivo_3ch import *
+
 # parser = argparse.ArgumentParser(description='Load Models')
 # parser.add_argument('--slice_size', type=int, default=198, help='input size')
 # parser.add_argument('--devices', type=int, default=500, help='number of classes')
@@ -31,8 +32,8 @@ with torch.cuda.device(7):
 	# model = ResNet50_1d(args.slice_size,args.devices)
 	args = get_args()
 	# model = WDSR_B(args)
-	model = vivo.Vivo8ch29RBs()
-	input = torch.randn(1,1,960,540)
+	model = Vivo8ch29RBs()
+	input = torch.randn(1,3,960,540)
 
 	model.train(False)
 	model.eval()
