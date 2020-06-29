@@ -31,8 +31,8 @@ with torch.cuda.device(7):
 	# 	print(folder)
 	# model = ResNet50_1d(args.slice_size,args.devices)
 	args = get_args()
-	# model = WDSR_B(args)
-	model = Vivo32ch2RBs3ch()
+	model = WDSR_B(args)
+	# model = Vivo32ch2RBs3ch()
 	input = torch.randn(1,3,196,196)
 
 	model.train(False)
