@@ -6,10 +6,10 @@ def get_args():
 #   args for the network
     parser.add_argument('--scale', default=2)
 
-    parser.add_argument('--n_resblocks', default=4,
+    parser.add_argument('--n_resblocks', default=2,
                         help='Number of Residual Blocks')
 
-    parser.add_argument('--n_feats', default=16,
+    parser.add_argument('--n_feats', default=24,
                         help='Feature maps in the Residual Block mapping path way' +
                         'The total Parameter of the network is:' +
                         '(x*x*6*1 + 6*x*x*0.8 + 3*3*x*x*0.8)*5 + 27*x + 25*12*3')
@@ -19,6 +19,8 @@ def get_args():
     parser.add_argument('--g_mean', type=float, default=0.4371,
                         help='Mean of G channel')
     parser.add_argument('--b_mean', type=float, default=0.4040,
+                        help='Mean of B channel')
+    parser.add_argument('--block_feats', type=int, default=24,
                         help='Mean of B channel')
 
     parser.add_argument('--n_colors', default=3)  # learning rate decrease every 5 epochs
