@@ -76,11 +76,11 @@ class WDSR_A(nn.Module):
         self.skip = nn.Sequential(*skip)
 
     def forward(self, x):
-        x = (x - self.rgb_mean.cuda()*255)/127.5
+        x = (x - self.rgb_mean*255)/127.5
         s = self.skip(x)
         x = self.head(x)
         x = self.body(x)
         x = self.tail(x)
         x += s
-        x = x*127.5 + self.rgb_mean.cuda()*255
+        x = x*127.5 + self.rgb_mean*255
         return x
