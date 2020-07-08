@@ -34,7 +34,7 @@ class WDSR_A(nn.Module):
         super(WDSR_A, self).__init__()
         # hyper-params
         self.args = args
-        scale = args.scale[0]
+        scale = args.scale
         n_resblocks = args.n_resblocks
         n_feats = args.n_feats
         kernel_size = 3
