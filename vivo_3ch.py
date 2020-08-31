@@ -75,7 +75,7 @@ def de_subpix(y):
 class Vivo3ch(nn.Module):
     def __init__(self, args):
         super().__init__()
-        scale = args.scale[0]
+        scale = args.scale
         nf = args.n_feats
         nRBs = args.n_resblocks
         self.relu = nn.ReLU()
