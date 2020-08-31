@@ -88,7 +88,7 @@ class Vivo3ch(nn.Module):
     
     def forward(self, x):
         # print(x.size())
-        y = self.relu(space_to_depth(self.conv_in(x), 2))
+        y = self.relu(space_to_depth(self.conv_in(x), scale))
         # print(y.size())
         y = self.sr(y)
         # print(y.size())
