@@ -72,33 +72,6 @@ def space_to_depth(x, block_size):
 #         return X
 
 
-# class Vivo3ch(nn.Module):
-#     def __init__(self, args):
-#         super().__init__()
-#         scale = args.scale
-#         nf = args.n_feats
-#         nRBs = args.n_resblocks
-#         self.relu = nn.ReLU()
-#         self.conv_in = nn.Conv2d(3, nf//4, 1, (1, 1), padding=1//2)
-#         RB_noBn = functools.partial(ResidualBlock_noBN, nf=nf)
-#         self.sr = make_layer(RB_noBn, nRBs)
-#         self.conv_out1 = nn.Conv2d(nf, nf*4, 1, (1, 1), padding=1//2)
-#         self.conv_out2 = nn.Conv2d(nf, 3*4, 1, (1, 1), padding=1//2)
-#         self.pix_shuffle = nn.PixelShuffle(scale)
-    
-#     def forward(self, x):
-#         # print(x.size())
-#         y = self.relu(space_to_depth(self.conv_in(x), 2))
-#         # print(y.size())
-#         y = self.sr(y)
-#         # print(y.size())
-#         y = self.pix_shuffle(self.conv_out1(y))
-#         y = self.pix_shuffle(self.conv_out2(y))
-#         # print(y.size())
-
-#         return y
-
-
 class Vivo3ch(nn.Module):
     def __init__(self, args):
         super().__init__()
@@ -106,18 +79,45 @@ class Vivo3ch(nn.Module):
         nf = args.n_feats
         nRBs = args.n_resblocks
         self.relu = nn.ReLU()
-        self.conv_in = nn.Conv2d(3, nf, 3, 1, 1)
+        self.conv_in = nn.Conv2d(3, nf//4, 1, 1, 0)
         RB_noBn = functools.partial(ResidualBlock_noBN, nf=nf)
         self.sr = make_layer(RB_noBn, nRBs)
-        self.conv_out = nn.Conv2d(nf, 4*3, 3, 1, 1)
+        self.conv_out1 = nn.Conv2d(nf, nf*4, 1, 1, 0)
+        self.conv_out2 = nn.Conv2d(nf, 3*4, 1, 1, 0)
         self.pix_shuffle = nn.PixelShuffle(scale)
     
     def forward(self, x):
-        y = self.relu(self.conv_in(x))
+        # print(x.size())
+        y = self.relu(space_to_depth(self.conv_in(x), 2))
+        # print(y.size())
         y = self.sr(y)
-        y = self.pix_shuffle(self.conv_out(y))
+        # print(y.size())
+        y = self.pix_shuffle(self.conv_out1(y))
+        y = self.pix_shuffle(self.conv_out2(y))
+        # print(y.size())
 
         return y
+
+
+# class Vivo3ch(nn.Module):
+#     def __init__(self, args):
+#         super().__init__()
+#         scale = args.scale
+#         nf = args.n_feats
+#         nRBs = args.n_resblocks
+#         self.relu = nn.ReLU()
+#         self.conv_in = nn.Conv2d(3, nf, 3, 1, 1)
+#         RB_noBn = functools.partial(ResidualBlock_noBN, nf=nf)
+#         self.sr = make_layer(RB_noBn, nRBs)
+#         self.conv_out = nn.Conv2d(nf, 4*3, 3, 1, 1)
+#         self.pix_shuffle = nn.PixelShuffle(scale)
+    
+#     def forward(self, x):
+#         y = self.relu(self.conv_in(x))
+#         y = self.sr(y)
+#         y = self.pix_shuffle(self.conv_out(y))
+
+#         return y
 
 
 class Vivo32ch2RBs3ch(nn.Module):
