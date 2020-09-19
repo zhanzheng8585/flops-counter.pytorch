@@ -12,6 +12,7 @@ import yaml
 import wdsr_b
 from option2 import parser
 from wdsr_b import *
+from WDSR_arch import *
 from args import *
 from vivo_3ch import *
 
@@ -31,7 +32,7 @@ with torch.cuda.device(7):
 	# 	print(folder)
 	# model = ResNet50_1d(args.slice_size,args.devices)
 	args = get_args()
-	model = Vivo3ch(args)
+	model = wdsr_new(args)
 	# model = Vivo32ch2RBs3ch()
 	input = torch.randn(1,3,960,540)
 
@@ -40,7 +41,7 @@ with torch.cuda.device(7):
 	macs, params = profile(model, inputs=(input, ))
 	# flops, params = get_model_complexity_info(net, (3, 224, 224), as_strings=True, print_per_layer_stat=True)
 	print('{:<30}  {:<8}'.format('Computational complexity: ', macs/1000000000)) # GMACs
-	print('{:<30}  {:<8}'.format('Number of parameters: ', params/1000)) # M
+	print('{:<30}  {:<8}'.format('Number of parameters: ', params/1000000)) # M
 
 
 	# model = ResNet50_1d_shrink(args.slice_size,args.devices,shrink)
