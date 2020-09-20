@@ -34,8 +34,13 @@ class Block(nn.Module):
 
 
 class wdsr_new(nn.Module):
-    def __init__(self, channels=3, n_feats=32, n_resblocks=32, scale=2):
+    def __init__(self, args):
         super(wdsr_new, self).__init__()
+        self.args = args
+        scale = args.scale
+        n_resblocks = args.n_resblocks
+        n_feats = args.n_feats
+        channels = args.n_colors
         kernel_size = 3
         act = nn.ReLU(True)
         # wn = lambda x: x
