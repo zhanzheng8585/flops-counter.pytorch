@@ -75,10 +75,10 @@ class CNNCifar(nn.Module):
         self.conv2 = nn.Conv2d(64, 128, 3, padding=1, bias=False)
         self.avgpool = nn.AdaptiveAvgPool2d((7, 7))
         self.classifier = nn.Sequential(
-            nn.Linear(128 * 7 * 7, 256),
+            nn.Linear(128 * 7 * 7, 128),
             nn.ReLU(True),
             nn.Dropout(),
-            nn.Linear(256, 128),
+            nn.Linear(128, 128),
             nn.ReLU(True),
             nn.Dropout(),
             nn.Linear(128, args.num_classes),
