@@ -7,13 +7,15 @@ from wdsr_b import *
 from args import *
 from vivo_3ch import *
 from wdsr_a import *
+from models import CNNCifar
 
 with torch.cuda.device(7):
 	args = get_args()
-	net = Vivo3ch(args)
+	# net = Vivo3ch(args)
+	net = CNNCifar(args=args)
 	# net = vivo.Vivo8ch29RBs()
 	# net = models.densenet161()
-	flops, params = get_model_complexity_info(net, (3, 196, 196), as_strings=True, print_per_layer_stat=True)
+	flops, params = get_model_complexity_info(net, (3, 24, 24), as_strings=True, print_per_layer_stat=True)
 	# flops, params = get_model_complexity_info(net, (3, 224, 224), as_strings=True, print_per_layer_stat=True)
 	print('{:<30}  {:<8}'.format('Computational complexity: ', flops))
 	print('{:<30}  {:<8}'.format('Number of parameters: ', params))
