@@ -12,6 +12,7 @@ from models import CNNCifar
 with torch.cuda.device(7):
 	args = get_args()
 	# net = Vivo3ch(args)
+	args.num_classes = 10
 	net = CNNCifar(args=args)
 	# net = vivo.Vivo8ch29RBs()
 	# net = models.densenet161()
