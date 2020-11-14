@@ -8,6 +8,7 @@ from args import *
 from vivo_3ch import *
 from wdsr_a import *
 from models import CNNCifar
+from models import MLP
 
 with torch.cuda.device(7):
 	args = get_args()
