@@ -31,13 +31,13 @@ class CNNMnist(nn.Module):
         self.conv1 = nn.Conv2d(1, 32, kernel_size=5)
         self.conv2 = nn.Conv2d(32, 64, kernel_size=5)
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
-        self.conv2_drop = nn.Dropout2d()
+        # self.conv2_drop = nn.Dropout2d()
         self.fc1 = nn.Linear(64 * 5 * 5, 512)
         self.fc2 = nn.Linear(512, args.num_classes)
 
     def forward(self, x):
         x = F.relu(self.pool(self.conv1(x)))
-        x = F.relu(self.pool(self.conv2_drop(self.conv2(x))))
+        x = F.relu(self.pool(self.conv2(x)))
         x = torch.flatten(x, 1)
         x = F.relu(self.fc1(x))
         x = F.dropout(x, training=self.training)
