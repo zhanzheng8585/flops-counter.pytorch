@@ -75,9 +75,9 @@ class CNNCifar(nn.Module):
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
         self.conv2 = nn.Conv2d(64, 128, 3, padding=1, bias=False)
         # self.bn2 = nn.BatchNorm2d(128)
-        self.avgpool = nn.AdaptiveAvgPool2d((3, 3))
+        self.avgpool = nn.AdaptiveAvgPool2d((6, 6))
         self.classifier = nn.Sequential(
-            nn.Linear(128 * 3 * 3, 512),
+            nn.Linear(128 * 6 * 6, 512),
             nn.ReLU(True),
             nn.Dropout(),
             nn.Linear(512, 512),
