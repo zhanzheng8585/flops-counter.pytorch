@@ -30,7 +30,7 @@ class CNNMnist(nn.Module):
         super(CNNMnist, self).__init__()
         self.conv1 = nn.Conv2d(1, 32, kernel_size=5)
         self.conv2 = nn.Conv2d(32, 64, kernel_size=5)
-        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.pool = nn.MaxPool2d(kernel_size=2)
         # self.conv2_drop = nn.Dropout2d()
         self.fc1 = nn.Linear(64 * 5 * 5, 512)
         self.fc2 = nn.Linear(512, args.num_classes)
