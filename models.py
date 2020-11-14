@@ -80,13 +80,13 @@ class CNNCifar(nn.Module):
         # self.bn2 = nn.BatchNorm2d(128)
         self.avgpool = nn.AdaptiveAvgPool2d((5, 5))
         self.classifier = nn.Sequential(
-            nn.Linear(128 * 5 * 5, 288),
+            nn.Linear(128 * 5 * 5, 272),
             nn.ReLU(True),
             nn.Dropout(),
-            nn.Linear(288, 288),
+            nn.Linear(272, 272),
             nn.ReLU(True),
             nn.Dropout(),
-            nn.Linear(288, args.num_classes),
+            nn.Linear(272, args.num_classes),
         )
         # self.fc1 = nn.Linear(128 * 8 * 8, 256)
         # self.fc2 = nn.Linear(256, 128)
