@@ -71,13 +71,13 @@ class CNNCifar(nn.Module):
     def __init__(self, args):
         super(CNNCifar, self).__init__()
         self.conv1 = nn.Conv2d(3, 64, 3, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(64)
+        # self.bn1 = nn.BatchNorm2d(64)
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
         self.conv2 = nn.Conv2d(64, 128, 3, padding=1, bias=False)
-        self.bn2 = nn.BatchNorm2d(128)
-        self.avgpool = nn.AdaptiveAvgPool2d((7, 7))
+        # self.bn2 = nn.BatchNorm2d(128)
+        self.avgpool = nn.AdaptiveAvgPool2d((4, 4))
         self.classifier = nn.Sequential(
-            nn.Linear(128 * 7 * 7, 144),
+            nn.Linear(128 * 4 * 4, 144),
             nn.ReLU(True),
             nn.Dropout(),
             nn.Linear(144, 144),
@@ -90,8 +90,10 @@ class CNNCifar(nn.Module):
         # self.fc3 = nn.Linear(128, args.num_classes)
 
     def forward(self, x):
-        x = self.pool(F.relu(self.bn1(self.conv1(x))))
-        x = self.pool(F.relu(self.bn2(self.conv2(x))))
+        x = self.pool(F.relu(self.conv1(x)))
+        x = self.pool(F.relu(self.conv2(x)))
+        # x = self.pool(F.relu(self.bn1(self.conv1(x))))
+        # x = self.pool(F.relu(self.bn2(self.conv2(x))))
         x = self.avgpool(x)
         x = torch.flatten(x, 1)
         # x = x.view(-1, 128 * 8 * 8)
