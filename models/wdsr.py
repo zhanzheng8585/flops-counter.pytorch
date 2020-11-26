@@ -30,7 +30,7 @@ def update_argparser(parser):
   parser.add_argument(
       '--width_multiplier',
       help='Width multiplier inside residual blocks.',
-      default=1,
+      default=4,
       type=float)
   parser.add_argument(
       '--temporal_size',
