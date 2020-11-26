@@ -85,7 +85,7 @@ class MODEL(nn.Module):
     num_inputs = 3
     if self.temporal_size:
       num_inputs *= self.temporal_size
-    num_outputs = params.scale * params.scale * params.num_channels
+    num_outputs = params.scale * params.scale * 3
     self.num_scales = params.num_scales
 
     body = []
