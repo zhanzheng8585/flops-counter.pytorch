@@ -4,7 +4,7 @@ from ptflops import get_model_complexity_info
 # import wdsr_b
 import argparse
 import importlib
-from option2 import parser
+from option import parser
 from wdsr_b import *
 from args import *
 from vivo_3ch import *
