@@ -10,66 +10,66 @@ import torch.nn as nn
 import torch.nn.init as init
 import torch.optim as optim
 
-# import common.metrics
-# import models
+import common.metrics
+import models
 
 
-# def update_argparser(parser):
-#   models.update_argparser(parser)
-#   args, _ = parser.parse_known_args()
-#   parser.add_argument(
-#       '--num_blocks',
-#       help='Number of residual blocks in networks.',
-#       default=16,
-#       type=int)
-#   parser.add_argument(
-#       '--num_residual_units',
-#       help='Number of residual units in networks.',
-#       default=32,
-#       type=int)
-#   parser.add_argument(
-#       '--width_multiplier',
-#       help='Width multiplier inside residual blocks.',
-#       default=4,
-#       type=float)
-#   parser.add_argument(
-#       '--temporal_size',
-#       help='Number of frames for burst input.',
-#       default=None,
-#       type=int)
-#   parser.add_argument(
-#       '--num_scales',
-#       help='Number of scales in networks.',
-#       required=True,
-#       type=int)
-#   if args.dataset.startswith('div2k'):
-#     parser.set_defaults(
-#         train_epochs=30,
-#         learning_rate_milestones=(20, 25),
-#         learning_rate_decay=0.2,
-#         save_checkpoints_epochs=1,
-#         lr_patch_size=48,
-#         train_temporal_size=1,
-#         eval_temporal_size=1,
-#     )
-#   else:
-#     raise NotImplementedError('Needs to tune hyper parameters for new dataset.')
+def update_argparser(parser):
+  models.update_argparser(parser)
+  args, _ = parser.parse_known_args()
+  parser.add_argument(
+      '--num_blocks',
+      help='Number of residual blocks in networks.',
+      default=16,
+      type=int)
+  parser.add_argument(
+      '--num_residual_units',
+      help='Number of residual units in networks.',
+      default=32,
+      type=int)
+  parser.add_argument(
+      '--width_multiplier',
+      help='Width multiplier inside residual blocks.',
+      default=4,
+      type=float)
+  parser.add_argument(
+      '--temporal_size',
+      help='Number of frames for burst input.',
+      default=None,
+      type=int)
+  parser.add_argument(
+      '--num_scales',
+      help='Number of scales in networks.',
+      required=True,
+      type=int)
+  if args.dataset.startswith('div2k'):
+    parser.set_defaults(
+        train_epochs=30,
+        learning_rate_milestones=(20, 25),
+        learning_rate_decay=0.2,
+        save_checkpoints_epochs=1,
+        lr_patch_size=48,
+        train_temporal_size=1,
+        eval_temporal_size=1,
+    )
+  else:
+    raise NotImplementedError('Needs to tune hyper parameters for new dataset.')
 
 
-# def get_model_spec(params):
-#   model = MODEL(params)
-#   print('# of parameters: ', sum([p.numel() for p in model.parameters()]))
-#   optimizer = optim.Adam(model.parameters(), params.learning_rate)
-#   lr_scheduler = optim.lr_scheduler.MultiStepLR(optimizer,
-#                                                 params.learning_rate_milestones,
-#                                                 params.learning_rate_decay)
-#   loss_fn = torch.nn.L1Loss()
-#   metrics = {
-#       'loss': loss_fn,
-#       'PSNR': functools.partial(common.metrics.psnr, shave=params.scale + 6),
-#       'PSNR_Y': functools.partial(common.metrics.psnr_y, shave=params.scale),
-#   }
-#   return model, loss_fn, optimizer, lr_scheduler, metrics
+def get_model_spec(params):
+  model = MODEL(params)
+  print('# of parameters: ', sum([p.numel() for p in model.parameters()]))
+  optimizer = optim.Adam(model.parameters(), params.learning_rate)
+  lr_scheduler = optim.lr_scheduler.MultiStepLR(optimizer,
+                                                params.learning_rate_milestones,
+                                                params.learning_rate_decay)
+  loss_fn = torch.nn.L1Loss()
+  metrics = {
+      'loss': loss_fn,
+      'PSNR': functools.partial(common.metrics.psnr, shave=params.scale + 6),
+      'PSNR_Y': functools.partial(common.metrics.psnr_y, shave=params.scale),
+  }
+  return model, loss_fn, optimizer, lr_scheduler, metrics
 
 
 class MODEL(nn.Module):
