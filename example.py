@@ -45,7 +45,7 @@ from wdsr_a import *
 
 with torch.cuda.device(7):
 
-	# args = get_args()
+	args = get_args()
 
 
 	net = WDSR_B(args)
