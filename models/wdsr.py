@@ -72,14 +72,14 @@ class MODEL(nn.Module):
   def __init__(self, params):
     super(MODEL, self).__init__()
     self.temporal_size = params.temporal_size
-    self.image_mean = params.image_mean
+    self.image_mean = 1
     kernel_size = 3
     skip_kernel_size = 5
     weight_norm = torch.nn.utils.weight_norm
     num_inputs = params.num_channels
     if self.temporal_size:
       num_inputs *= self.temporal_size
-    num_outputs = params.scale * params.scale * params.num_channels
+    num_outputs = params.scale * params.scale * 3
 
     body = []
     conv = weight_norm(
