@@ -20,7 +20,7 @@ def update_argparser(parser):
   parser.add_argument(
       '--num_blocks',
       help='Number of residual blocks in networks.',
-      default=16,
+      default=8,
       type=int)
   parser.add_argument(
       '--num_residual_units',
@@ -40,7 +40,7 @@ def update_argparser(parser):
   parser.add_argument(
       '--num_scales',
       help='Number of scales in networks.',
-      default=1,
+      default=6,
       type=int)
   if args.dataset.startswith('div2k'):
     parser.set_defaults(
