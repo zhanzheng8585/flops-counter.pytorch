@@ -76,7 +76,7 @@ class MODEL(nn.Module):
     kernel_size = 3
     skip_kernel_size = 5
     weight_norm = torch.nn.utils.weight_norm
-    num_inputs = params.num_channels
+    num_inputs = 3
     if self.temporal_size:
       num_inputs *= self.temporal_size
     num_outputs = params.scale * params.scale * 3
