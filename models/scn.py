@@ -77,7 +77,8 @@ class MODEL(nn.Module):
   def __init__(self, params):
     super(MODEL, self).__init__()
     self.temporal_size = params.temporal_size
-    self.image_mean = params.image_mean
+    # self.image_mean = params.image_mean
+    self.image_mean = 1
     kernel_size = 3
     skip_kernel_size = 5
     weight_norm = torch.nn.utils.weight_norm
