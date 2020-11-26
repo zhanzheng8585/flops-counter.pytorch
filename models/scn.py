@@ -40,7 +40,7 @@ def update_argparser(parser):
   parser.add_argument(
       '--num_scales',
       help='Number of scales in networks.',
-      required=True,
+      default=2,
       type=int)
   if args.dataset.startswith('div2k'):
     parser.set_defaults(
