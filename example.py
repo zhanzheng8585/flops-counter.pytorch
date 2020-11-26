@@ -48,7 +48,7 @@ with torch.cuda.device(7):
 	args = get_args()
 
 
-	net = WDSR_A(args)
+	net = WDSR_B(args)
 	# args.num_classes = 10
 	# net = model
 	# net = MLP(dim_in = 1024, dim_hidden = 200, dim_out = 10)

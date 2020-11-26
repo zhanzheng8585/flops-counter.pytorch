@@ -16,8 +16,10 @@ class Block(nn.Module):
         super(Block, self).__init__()
         self.res_scale = res_scale
         body = []
-        expand = 6
-        linear = 0.8
+        # expand = 6
+        # linear = 0.8
+        expand = 9
+        linear = 0.5
         body.append(
             wn(nn.Conv2d(n_feats, n_feats*expand, 1, padding=1//2)))  # channels：64->64*6
         body.append(act)
