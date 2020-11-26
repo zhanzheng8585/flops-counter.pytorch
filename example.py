@@ -15,7 +15,7 @@ from wdsr_a import *
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--dataset',help='Dataset name.',default="div2k",type=str)
-parser.add_argument('--model',help='Model name.',default='scn',type=str)
+parser.add_argument('--model',help='Model name.',default='wdsr',type=str)
 parser.add_argument('--job_dir',help='Directory to write checkpoints and export models.')
 parser.add_argument('--ckpt',help='File path to load checkpoint.',default=None,type=str,)
 parser.add_argument('--eval_only',default=False,action='store_true',help='Running evaluation only.',)
