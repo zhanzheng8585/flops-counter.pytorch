@@ -17,7 +17,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument(
   '--dataset',
   help='Dataset name.',
-  default=None,
+  default="div2k",
   type=str
 )
 parser.add_argument(
