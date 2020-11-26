@@ -18,20 +18,17 @@ parser.add_argument(
   '--dataset',
   help='Dataset name.',
   default=None,
-  type=str,
-  required=True,
+  type=str
 )
 parser.add_argument(
   '--model',
   help='Model name.',
   default='scn',
-  type=str,
-  required=True,
+  type=str
 )
 parser.add_argument(
   '--job_dir',
-  help='Directory to write checkpoints and export models.',
-  required=True,
+  help='Directory to write checkpoints and export models.'
 )
 parser.add_argument(
   '--ckpt',
