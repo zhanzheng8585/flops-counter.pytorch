@@ -19,7 +19,7 @@ class Block(nn.Module):
         # expand = 6
         # linear = 0.8
         expand = 9
-        # linear = 0.5
+        linear = 1
         body.append(
             wn(nn.Conv2d(n_feats, n_feats*expand, 1, padding=1//2)))  # channels：64->64*6
         body.append(act)
