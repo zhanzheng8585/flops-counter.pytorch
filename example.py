@@ -9,9 +9,9 @@ from wdsr_b import *
 from args import *
 from vivo_3ch import *
 from wdsr_a import *
-from models import CNNCifar
-from models import MLP
-from models import CNNMnist
+# from models import CNNCifar
+# from models import MLP
+# from models import CNNMnist
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
