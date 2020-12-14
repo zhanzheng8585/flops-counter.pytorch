@@ -9,7 +9,7 @@ def get_args():
     parser.add_argument('--n_resblocks', default=12,
                         help='Number of Residual Blocks')
 
-    parser.add_argument('--n_feats', default=22,
+    parser.add_argument('--n_feats', default=24,
                         help='Feature maps in the Residual Block mapping path way' +
                         'The total Parameter of the network is:' +
                         '(x*x*6*1 + 6*x*x*0.8 + 3*3*x*x*0.8)*5 + 27*x + 25*12*3')
