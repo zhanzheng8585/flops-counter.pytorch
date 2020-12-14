@@ -4,9 +4,9 @@ import argparse
 def get_args():
     parser = argparse.ArgumentParser()
 #   args for the network
-    parser.add_argument('--scale', default=2)
+    parser.add_argument('--scale', default=4)
 
-    parser.add_argument('--n_resblocks', default=8,
+    parser.add_argument('--n_resblocks', default=6,
                         help='Number of Residual Blocks')
 
     parser.add_argument('--n_feats', default=32,
