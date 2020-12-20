@@ -20,7 +20,7 @@ def get_args():
                         help='Mean of G channel')
     parser.add_argument('--b_mean', type=float, default=0.4040,
                         help='Mean of B channel')
-    parser.add_argument('--block_feats', type=int, default=64,
+    parser.add_argument('--block_feats', type=int, default=32,
                         help='Mean of B channel')
 
     parser.add_argument('--n_colors', default=3)  # learning rate decrease every 5 epochs
