@@ -6,7 +6,7 @@ def get_args():
 #   args for the network
     parser.add_argument('--scale', default=4)
 
-    parser.add_argument('--n_resblocks', default=6,
+    parser.add_argument('--n_resblocks', default=12,
                         help='Number of Residual Blocks')
 
     parser.add_argument('--n_feats', default=24,
