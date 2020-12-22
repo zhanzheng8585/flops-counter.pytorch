@@ -48,14 +48,14 @@ with torch.cuda.device(7):
 	args = get_args()
 
 
-	net = WDSR_A(args)
+	net = WDSR_B(args)
 	# args.num_classes = 10
 	# net = model
 	# net = MLP(dim_in = 1024, dim_hidden = 200, dim_out = 10)
 	# net = CNNMnist(args=args)
 	# net = vivo.Vivo8ch29RBs()
 	# net = models.densenet161()
-	flops, params = get_model_complexity_info(net, (3, 640, 360), as_strings=True, print_per_layer_stat=True)
+	flops, params = get_model_complexity_info(net, (3, 320, 180), as_strings=True, print_per_layer_stat=True)
 	# flops, params = get_model_complexity_info(net, (3, 224, 224), as_strings=True, print_per_layer_stat=True)
 	print('{:<30}  {:<8}'.format('Computational complexity: ', flops))
 	print('{:<30}  {:<8}'.format('Number of parameters: ', params))
