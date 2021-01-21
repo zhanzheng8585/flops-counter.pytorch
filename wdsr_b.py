@@ -17,7 +17,7 @@ class Block(nn.Module):
         self.res_scale = res_scale
         body = []
         expand = 6
-        linear = 0.8
+        linear = 0.84
         # expand = 9
         # linear = 1
         body.append(
